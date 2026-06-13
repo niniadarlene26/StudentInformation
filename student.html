@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information Form</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container{
+            width: 300px;
+            margin: auto;
+        }
+
+        input{
+            width: 90%;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        button{
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+
+        .card{
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Information Form</h2>
+
+    <label>Name</label><br>
+    <input type="text" id="name"><br>
+
+    <label>Age</label><br>
+    <input type="number" id="age"><br>
+
+    <label>Grade Level</label><br>
+    <input type="text" id="grade"><br>
+
+    <label>Section</label><br>
+    <input type="text" id="section"><br>
+
+    <button onclick="submitForm()">Submit</button>
+
+    <h3>Current Date and Time</h3>
+    <p id="datetime"></p>
+
+    <div class="card" id="profileCard">
+        <h3>Student Profile Card</h3>
+        <p id="outputName"></p>
+        <p id="outputAge"></p>
+        <p id="outputGrade"></p>
+        <p id="outputSection"></p>
+    </div>
+</div>
+
+<script>
+    function updateDateTime() {
+        let now = new Date();
+        document.getElementById("datetime").innerHTML =
+            now.toLocaleString();
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    function submitForm() {
+
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let grade = document.getElementById("grade").value;
+        let section = document.getElementById("section").value;
+
+        document.body.style.backgroundColor = "lightblue";
+
+        document.getElementById("outputName").innerHTML =
+            "Name: " + name;
+        document.getElementById("outputAge").innerHTML =
+            "Age: " + age;
+        document.getElementById("outputGrade").innerHTML =
+            "Grade: " + grade;
+        document.getElementById("outputSection").innerHTML =
+            "Section: " + section;
+
+        document.getElementById("profileCard").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
